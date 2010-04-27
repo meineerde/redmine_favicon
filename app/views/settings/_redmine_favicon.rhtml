@@ -1,0 +1,28 @@
+<p>
+  <%= label_tag "settings_type", l(:label_favicon_type) %>
+  <%=
+    select_tag 'settings[type]', options_for_select([
+      [l(:label_default), 'default'],
+      [l(:field_url), 'url']
+    ], @settings['type']),
+    :onchange => <<-EOF
+      if (value == "url") {
+        $$('.favicon_url').each(Element.show);
+      } else {
+        $$('.favicon_url').each(Element.hide);
+      }
+    EOF
+  %>
+</p>
+
+<div class="favicon_url" <%= 'style="display: none;"' unless @settings['type'] == "url" %>>
+<p>
+  <%= label_tag "settings_url", l(:field_url) %>
+  <%= text_field_tag "settings[url]", @settings["url"], :size => 50 %>
+</p>
+
+<p>
+  <%= label_tag "settings_mime_type", l(:label_favicon_mime_type) %>
+  <%= text_field_tag "settings[mime_type]", @settings["mime_type"] || "image/x-icon", :size => 50 %>
+</p>
+</div>
