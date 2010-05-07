@@ -16,7 +16,6 @@ Redmine::Plugin.register :redmine_favicon do
   settings_defaults = {
     'type' => "default",
     'url' => '',
-    'mime_type' => 'image/x-icon'
   }
   
   settings :default => settings_defaults, :partial => 'settings/redmine_favicon'

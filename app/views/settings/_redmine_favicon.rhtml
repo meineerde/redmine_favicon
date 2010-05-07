@@ -15,14 +15,7 @@
   %>
 </p>
 
-<div class="favicon_url" <%= 'style="display: none;"' unless @settings['type'] == "url" %>>
-<p>
+<p class="favicon_url" <%= 'style="display: none;"' unless @settings['type'] == "url" %>>
   <%= label_tag "settings_url", l(:field_url) %>
   <%= text_field_tag "settings[url]", @settings["url"], :size => 50 %>
 </p>
-
-<p>
-  <%= label_tag "settings_mime_type", l(:label_favicon_mime_type) %>
-  <%= text_field_tag "settings[mime_type]", @settings["mime_type"] || "image/x-icon", :size => 50 %>
-</p>
-</div>
