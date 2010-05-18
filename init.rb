@@ -1,5 +1,11 @@
 require 'redmine'
 
+require 'dispatcher'
+Dispatcher.to_prepare do
+  # Patches
+  require_dependency 'favicon/themes_patch'
+end
+
 # Hooks
 require 'favicon/layout_hooks'
 
