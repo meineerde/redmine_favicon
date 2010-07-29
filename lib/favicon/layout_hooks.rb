@@ -3,7 +3,7 @@ module Favicon
     include FaviconHelper
     
     def view_layouts_base_html_head(context = { })
-      link_to_favicon
+      link_to_favicon unless ApplicationHelper.instance_methods.include? "favicon"
     end
   end
 end
