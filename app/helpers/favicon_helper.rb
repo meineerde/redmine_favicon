@@ -5,10 +5,10 @@ module FaviconHelper
     type ||= Setting.plugin_redmine_favicon["type"]
     case type.to_s
     when "default"
-      image_path('../favicon.ico')
+      image_path('/favicon.ico')
     when "theme"
       @current_theme ||= Redmine::Themes.theme(Setting.ui_theme)
-      path = @current_theme ? "/themes/#{@current_theme.dir}/images/favicon.ico" : '../favicon.ico'
+      path = @current_theme ? "/themes/#{@current_theme.dir}/images/favicon.ico" : '/favicon.ico'
       image_path(path)
     when "url"
       Setting.plugin_redmine_favicon["url"]
