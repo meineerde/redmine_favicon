@@ -1,11 +1,11 @@
-# we need a require here to check for the favicon method
-require 'application_helper'
 require_dependency 'favicon_helper'
+require_dependency 'application_helper'
 
 module Favicon
   module ApplicationHelperPatch
     def self.included(base) # :nodoc:
       base.send(:include, InstanceMethods)
+      
       base.class_eval do
         alias_method_chain :favicon, :choice
       end
