@@ -6,13 +6,12 @@ module Favicon
       base.send(:include, InstanceMethods)
       
       base.class_eval do
-        alias_method_chain :favicon, :choice
+       alias_method_chain :favicon, :no_action
       end
     end
     
     module InstanceMethods
-      def favicon_with_choice
-        link_to_favicon
+      def favicon_with_no_action
       end
     end
   end

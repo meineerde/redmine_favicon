@@ -1,4 +1,3 @@
-require_dependency 'favicon_helper'
 require_dependency 'application_controller'
 
 module Favicon
