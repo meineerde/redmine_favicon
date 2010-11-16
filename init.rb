@@ -4,6 +4,7 @@ require 'dispatcher'
 Dispatcher.to_prepare do
   # Patches
   require_dependency 'favicon/themes_patch'
+  require_dependency 'favicon/application_controller_patch'
   require_dependency 'favicon/application_helper_patch'
 end
 

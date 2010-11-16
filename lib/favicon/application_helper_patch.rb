@@ -1,4 +1,3 @@
-require_dependency 'favicon_helper'
 require_dependency 'application_helper'
 
 module Favicon
@@ -20,6 +19,5 @@ module Favicon
 end
 
 if ApplicationHelper.instance_methods.include?("favicon")
-  ApplicationHelper.send(:include, FaviconHelper)
   ApplicationHelper.send(:include, Favicon::ApplicationHelperPatch)
 end
