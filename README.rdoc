@@ -1,4 +1,4 @@
-= Redmine Checkout plugin
+= Redmine Favicon plugin
 
 Author:: Holger Just
 URL:: http://dev.holgerjust.de/projects/redmine-favicon
