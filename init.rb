@@ -1,5 +1,11 @@
 require 'redmine'
 
+require 'dispatcher'
+Dispatcher.to_prepare do
+  # Patches
+  require_dependency 'favicon/themes_patch'
+end
+
 # Hooks
 require 'favicon/layout_hooks'
 
@@ -8,7 +14,7 @@ Redmine::Plugin.register :redmine_favicon do
   url 'http://dev.holgerjust.de/projects/redmine-favicon'
   author 'Holger Just'
   author_url 'http://meine-er.de'
-  description 'Adds a GUI and a simple API to configure the favicon'
+  description 'Adds a GUI and a simple API to configure the favicon.'
   version '0.1'
   
   requires_redmine :version_or_higher => '0.8'

@@ -1,15 +1,23 @@
+<% self.class.send (:include, FaviconHelper) %>
+
 <p>
   <%= label_tag "settings_type", l(:label_favicon_type) %>
   <%=
     select_tag 'settings[type]', options_for_select([
       [l(:label_default), 'default'],
+      [l(:label_theme), 'theme'],
       [l(:field_url), 'url']
     ], @settings['type']),
     :onchange => <<-EOF
       if (value == "url") {
         $$('.favicon_url').each(Element.show);
+        $$('.favicon_theme_url').each(Element.hide);
+      } else if (value == "theme") {
+        $$('.favicon_url').each(Element.hide);
+        $$('.favicon_theme_url').each(Element.show);
       } else {
         $$('.favicon_url').each(Element.hide);
+        $$('.favicon_theme_url').each(Element.hide);
       }
     EOF
   %>
@@ -18,4 +26,9 @@
 <p class="favicon_url" <%= 'style="display: none;"' unless @settings['type'] == "url" %>>
   <%= label_tag "settings_url", l(:field_url) %>
   <%= text_field_tag "settings[url]", @settings["url"], :size => 50 %>
+</p>
+
+<p class="favicon_theme_url" <%= 'style="display: none;"' unless @settings['type'] == "theme" %>>
+  <%= label_tag "settings_url", l(:field_url) %>
+  <%= text_field_tag "favicon_theme_url", favicon_path('theme'), :size => 50, :disabled => true %>
 </p>
